@@ -1,0 +1,274 @@
+
+Book モデルに関するテスト
+  実際に保存してみる
+[32m    有効な投稿内容の場合は保存されるか[0m
+  空白のバリデーションチェック
+[32m    titleが空白の場合にバリデーションチェックされ空白のエラーメッセージが返ってきているか[0m
+[32m    bodyが空白の場合にバリデーションチェックされ空白のエラーメッセージが返ってきているか[0m
+  titleを空白で投稿した場合に画面にエラーメッセージが表示されているか
+[32m    エラーメッセージは正しく表示されるか[0m
+  bodyを空白で投稿した場合に画面にエラーメッセージが表示されているか
+[32m    エラーメッセージは正しく表示されるか[0m
+
+投稿のテスト
+  トップ画面(root_path)のテスト
+    表示の確認
+[31m      トップ画面(root_path)に一覧ページへのリンクが表示されているか (FAILED - 1)[0m
+[31m      root_pathが"/"であるか (FAILED - 2)[0m
+  一覧画面のテスト
+    一覧の表示とリンクの確認
+[32m      bookの一覧表示(tableタグ)と投稿フォームが同一画面に表示されているか[0m
+[31m      bookのタイトルと感想を表示し、詳細・編集・削除のリンクが表示されているか (FAILED - 3)[0m
+[31m      Create Bookボタンが表示される (FAILED - 4)[0m
+    投稿処理に関するテスト
+[31m      投稿に成功しサクセスメッセージが表示されるか (FAILED - 5)[0m
+[31m      投稿に失敗する (FAILED - 6)[0m
+[31m      投稿後のリダイレクト先は正しいか (FAILED - 7)[0m
+    book削除のテスト
+[32m      application.html.erbにjavascript_pack_tagを含んでいるか[0m
+[31m      bookの削除 (FAILED - 8)[0m
+  詳細画面のテスト
+    表示の確認
+[32m      本のタイトルと感想が画面に表示されていること[0m
+[31m      Editリンクが表示される (FAILED - 9)[0m
+[31m      Backリンクが表示される (FAILED - 10)[0m
+    リンクの遷移先の確認
+[31m      Editの遷移先は編集画面か (FAILED - 11)[0m
+[31m      Backの遷移先は一覧画面か (FAILED - 12)[0m
+  編集画面のテスト
+    表示の確認
+[32m      編集前のタイトルと感想がフォームに表示(セット)されている[0m
+[32m      Update Bookボタンが表示される[0m
+[31m      Showリンクが表示される (FAILED - 13)[0m
+[31m      Backリンクが表示される (FAILED - 14)[0m
+    リンクの遷移先の確認
+[31m      Showの遷移先は詳細画面か (FAILED - 15)[0m
+[31m      Backの遷移先は一覧画面か (FAILED - 16)[0m
+    更新処理に関するテスト
+[32m      更新に成功しサクセスメッセージが表示されるか[0m
+[31m      更新に失敗しエラーメッセージが表示されるか (FAILED - 17)[0m
+[32m      更新後のリダイレクト先は正しいか[0m
+
+Failures:
+
+  1) 投稿のテスト トップ画面(root_path)のテスト 表示の確認 トップ画面(root_path)に一覧ページへのリンクが表示されているか
+     [31mFailure/Error: visit root_path[0m
+     [31m[0m
+     [31mNameError:[0m
+     [31m  undefined local variable or method `root_path' for #<RSpec::ExampleGroups::Nested::RootPath::Nested "トップ画面(root_path)に一覧ページへのリンクが表示されているか" (./spec/system/books_spec.rb:10)>[0m
+     [36m# ./spec/system/books_spec.rb:7:in `block (3 levels) in <main>'[0m
+
+  2) 投稿のテスト トップ画面(root_path)のテスト 表示の確認 root_pathが"/"であるか
+     [31mFailure/Error: visit root_path[0m
+     [31m[0m
+     [31mNameError:[0m
+     [31m  undefined local variable or method `root_path' for #<RSpec::ExampleGroups::Nested::RootPath::Nested "root_pathが"/"であるか" (./spec/system/books_spec.rb:13)>[0m
+     [36m# ./spec/system/books_spec.rb:7:in `block (3 levels) in <main>'[0m
+
+  3) 投稿のテスト 一覧画面のテスト 一覧の表示とリンクの確認 bookのタイトルと感想を表示し、詳細・編集・削除のリンクが表示されているか
+     [31mFailure/Error: expect(show_link[:href]).to eq book_path(book)[0m
+     [31m[0m
+     [31m  expected: "/books/1"[0m
+     [31m       got: "/books/151793"[0m
+     [31m[0m
+     [31m  (compared using ==)[0m
+     [36m# ./spec/system/books_spec.rb:48:in `block (5 levels) in <main>'[0m
+     [36m# ./spec/system/books_spec.rb:33:in `each_with_index'[0m
+     [36m# ./spec/system/books_spec.rb:33:in `block (4 levels) in <main>'[0m
+
+  4) 投稿のテスト 一覧画面のテスト 一覧の表示とリンクの確認 Create Bookボタンが表示される
+     [31mFailure/Error: expect(page).to have_button 'Create Book'[0m
+     [31m  expected to find button "Create Book" that is not disabled but there were no matches[0m
+     [36m# ./spec/system/books_spec.rb:52:in `block (4 levels) in <main>'[0m
+
+  5) 投稿のテスト 一覧画面のテスト 投稿処理に関するテスト 投稿に成功しサクセスメッセージが表示されるか
+     [31mFailure/Error: click_button 'Create Book'[0m
+     [31m[0m
+     [31mCapybara::ElementNotFound:[0m
+     [31m  Unable to find button "Create Book" that is not disabled[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/finders.rb:312:in `block in synced_resolve'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/base.rb:84:in `synchronize'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/finders.rb:301:in `synced_resolve'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/finders.rb:60:in `find'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/actions.rb:58:in `click_button'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/session.rb:773:in `click_button'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/dsl.rb:52:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/dsl.rb:52:in `click_button'[0m
+     [36m# ./spec/system/books_spec.rb:59:in `block (4 levels) in <main>'[0m
+
+  6) 投稿のテスト 一覧画面のテスト 投稿処理に関するテスト 投稿に失敗する
+     [31mFailure/Error: click_button 'Create Book'[0m
+     [31m[0m
+     [31mCapybara::ElementNotFound:[0m
+     [31m  Unable to find button "Create Book" that is not disabled[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/finders.rb:312:in `block in synced_resolve'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/base.rb:84:in `synchronize'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/finders.rb:301:in `synced_resolve'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/finders.rb:60:in `find'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/actions.rb:58:in `click_button'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/session.rb:773:in `click_button'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/dsl.rb:52:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/dsl.rb:52:in `click_button'[0m
+     [36m# ./spec/system/books_spec.rb:63:in `block (4 levels) in <main>'[0m
+
+  7) 投稿のテスト 一覧画面のテスト 投稿処理に関するテスト 投稿後のリダイレクト先は正しいか
+     [31mFailure/Error: click_button 'Create Book'[0m
+     [31m[0m
+     [31mCapybara::ElementNotFound:[0m
+     [31m  Unable to find button "Create Book" that is not disabled[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/finders.rb:312:in `block in synced_resolve'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/base.rb:84:in `synchronize'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/finders.rb:301:in `synced_resolve'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/finders.rb:60:in `find'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/actions.rb:58:in `click_button'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/session.rb:773:in `click_button'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/dsl.rb:52:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/dsl.rb:52:in `click_button'[0m
+     [36m# ./spec/system/books_spec.rb:70:in `block (4 levels) in <main>'[0m
+
+  8) 投稿のテスト 一覧画面のテスト book削除のテスト bookの削除
+     [31mFailure/Error: @book = Book.find(params[:id])[0m
+     [31m[0m
+     [31mActiveRecord::RecordNotFound:[0m
+     [31m  Couldn't find Book with 'id'=151793[0m
+     [36m# ./app/controllers/books_controller.rb:82:in `destroy'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/actiontext-6.1.7.3/lib/action_text/rendering.rb:20:in `with_renderer'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/actiontext-6.1.7.3/lib/action_text/engine.rb:59:in `block (4 levels) in <class:Engine>'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-2.2.7/lib/rack/tempfile_reaper.rb:15:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-2.2.7/lib/rack/etag.rb:27:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-2.2.7/lib/rack/conditional_get.rb:40:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-2.2.7/lib/rack/head.rb:12:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-2.2.7/lib/rack/session/abstract/id.rb:266:in `context'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-2.2.7/lib/rack/session/abstract/id.rb:260:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/railties-6.1.7.3/lib/rails/rack/logger.rb:37:in `call_app'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/railties-6.1.7.3/lib/rails/rack/logger.rb:26:in `block in call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/railties-6.1.7.3/lib/rails/rack/logger.rb:26:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-2.2.7/lib/rack/method_override.rb:24:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-2.2.7/lib/rack/runtime.rb:22:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-2.2.7/lib/rack/sendfile.rb:110:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/railties-6.1.7.3/lib/rails/engine.rb:539:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-2.2.7/lib/rack/urlmap.rb:74:in `block in call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-2.2.7/lib/rack/urlmap.rb:58:in `each'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-2.2.7/lib/rack/urlmap.rb:58:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-2.2.7/lib/rack/builder.rb:244:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-test-2.1.0/lib/rack/test.rb:360:in `process_request'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-test-2.1.0/lib/rack/test.rb:163:in `custom_request'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/rack-test-2.1.0/lib/rack/test.rb:112:in `delete'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/rack_test/browser.rb:80:in `process'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/rack_test/browser.rb:55:in `process_and_follow_redirects'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/rack_test/browser.rb:50:in `follow'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/rack_test/node.rb:252:in `follow_link'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/rack_test/node.rb:66:in `click'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/rack_test/node.rb:132:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/rack_test/node.rb:132:in `click'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/element.rb:172:in `block in click'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/element.rb:608:in `block in perform_click_action'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/base.rb:84:in `synchronize'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/element.rb:608:in `perform_click_action'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/element.rb:171:in `click'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/node/actions.rb:42:in `click_link'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/session.rb:773:in `click_link'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/dsl.rb:52:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.39.1/lib/capybara/dsl.rb:52:in `click_link'[0m
+     [36m# ./spec/system/books_spec.rb:88:in `block (4 levels) in <main>'[0m
+
+  9) 投稿のテスト 詳細画面のテスト 表示の確認 Editリンクが表示される
+     [31mFailure/Error: expect(edit_link.native.inner_text).to match(/edit/i)[0m
+     [31m[0m
+     [31m  expected " " to match /edit/i[0m
+     [31m  Diff:[0m[0m
+     [31m  [0m[34m@@ -1 +1 @@[0m
+     [31m  [0m[31m-/edit/i[0m
+     [31m  [0m[32m+" "[0m
+     [31m  [0m[0m
+     [36m# ./spec/system/books_spec.rb:106:in `block (4 levels) in <main>'[0m
+
+  10) 投稿のテスト 詳細画面のテスト 表示の確認 Backリンクが表示される
+      [31mFailure/Error: expect(back_link.native.inner_text).to match(/back/i)[0m
+      [31m[0m
+      [31m  expected "Edit" to match /back/i[0m
+      [31m  Diff:[0m[0m
+      [31m  [0m[34m@@ -1 +1 @@[0m
+      [31m  [0m[31m-/back/i[0m
+      [31m  [0m[32m+"Edit"[0m
+      [31m  [0m[0m
+      [36m# ./spec/system/books_spec.rb:110:in `block (4 levels) in <main>'[0m
+
+  11) 投稿のテスト 詳細画面のテスト リンクの遷移先の確認 Editの遷移先は編集画面か
+      [31mFailure/Error: expect(current_path).to eq('/books/' + book.id.to_s + '/edit')[0m
+      [31m[0m
+      [31m  expected: "/books/1/edit"[0m
+      [31m       got: "/books/1"[0m
+      [31m[0m
+      [31m  (compared using ==)[0m
+      [36m# ./spec/system/books_spec.rb:117:in `block (4 levels) in <main>'[0m
+
+  12) 投稿のテスト 詳細画面のテスト リンクの遷移先の確認 Backの遷移先は一覧画面か
+      [31mFailure/Error: expect(page).to have_current_path books_path[0m
+      [31m  expected "/books/1/edit" to equal "/books"[0m
+      [36m# ./spec/system/books_spec.rb:122:in `block (4 levels) in <main>'[0m
+
+  13) 投稿のテスト 編集画面のテスト 表示の確認 Showリンクが表示される
+      [31mFailure/Error: expect(show_link.native.inner_text).to match(/show/i)[0m
+      [31m[0m
+      [31m  expected "" to match /show/i[0m
+      [31m  Diff:[0m[0m
+      [31m  [0m[34m@@ -1 +1 @@[0m
+      [31m  [0m[31m-/show/i[0m
+      [31m  [0m[32m+""[0m
+      [31m  [0m[0m
+      [36m# ./spec/system/books_spec.rb:140:in `block (4 levels) in <main>'[0m
+
+  14) 投稿のテスト 編集画面のテスト 表示の確認 Backリンクが表示される
+      [31mFailure/Error: expect(back_link.native.inner_text).to match(/back/i)[0m
+      [31m[0m
+      [31m  expected "Show" to match /back/i[0m
+      [31m  Diff:[0m[0m
+      [31m  [0m[34m@@ -1 +1 @@[0m
+      [31m  [0m[31m-/back/i[0m
+      [31m  [0m[32m+"Show"[0m
+      [31m  [0m[0m
+      [36m# ./spec/system/books_spec.rb:144:in `block (4 levels) in <main>'[0m
+
+  15) 投稿のテスト 編集画面のテスト リンクの遷移先の確認 Showの遷移先は詳細画面か
+      [31mFailure/Error: expect(current_path).to eq('/books/' + book.id.to_s)[0m
+      [31m[0m
+      [31m  expected: "/books/1"[0m
+      [31m       got: "/books/1/edit"[0m
+      [31m[0m
+      [31m  (compared using ==)[0m
+      [36m# ./spec/system/books_spec.rb:151:in `block (4 levels) in <main>'[0m
+
+  16) 投稿のテスト 編集画面のテスト リンクの遷移先の確認 Backの遷移先は一覧画面か
+      [31mFailure/Error: expect(page).to have_current_path books_path[0m
+      [31m  expected "/books/1" to equal "/books"[0m
+      [36m# ./spec/system/books_spec.rb:156:in `block (4 levels) in <main>'[0m
+
+  17) 投稿のテスト 編集画面のテスト 更新処理に関するテスト 更新に失敗しエラーメッセージが表示されるか
+      [31mFailure/Error: expect(page).to have_content 'error'[0m
+      [31m  expected to find text "error" in "2件のエラーが発生しました\nTitle can't be blank Body can't be blank\nEditing Book\nTitle\nBody\nShow | back"[0m
+      [36m# ./spec/system/books_spec.rb:170:in `block (4 levels) in <main>'[0m
+
+Finished in 6.73 seconds (files took 1.31 seconds to load)
+[31m29 examples, 17 failures[0m
+
+Failed examples:
+
+[31mrspec ./spec/system/books_spec.rb:10[0m [36m# 投稿のテスト トップ画面(root_path)のテスト 表示の確認 トップ画面(root_path)に一覧ページへのリンクが表示されているか[0m
+[31mrspec ./spec/system/books_spec.rb:13[0m [36m# 投稿のテスト トップ画面(root_path)のテスト 表示の確認 root_pathが"/"であるか[0m
+[31mrspec ./spec/system/books_spec.rb:28[0m [36m# 投稿のテスト 一覧画面のテスト 一覧の表示とリンクの確認 bookのタイトルと感想を表示し、詳細・編集・削除のリンクが表示されているか[0m
+[31mrspec ./spec/system/books_spec.rb:51[0m [36m# 投稿のテスト 一覧画面のテスト 一覧の表示とリンクの確認 Create Bookボタンが表示される[0m
+[31mrspec ./spec/system/books_spec.rb:56[0m [36m# 投稿のテスト 一覧画面のテスト 投稿処理に関するテスト 投稿に成功しサクセスメッセージが表示されるか[0m
+[31mrspec ./spec/system/books_spec.rb:62[0m [36m# 投稿のテスト 一覧画面のテスト 投稿処理に関するテスト 投稿に失敗する[0m
+[31mrspec ./spec/system/books_spec.rb:67[0m [36m# 投稿のテスト 一覧画面のテスト 投稿処理に関するテスト 投稿後のリダイレクト先は正しいか[0m
+[31mrspec ./spec/system/books_spec.rb:86[0m [36m# 投稿のテスト 一覧画面のテスト book削除のテスト bookの削除[0m
+[31mrspec ./spec/system/books_spec.rb:104[0m [36m# 投稿のテスト 詳細画面のテスト 表示の確認 Editリンクが表示される[0m
+[31mrspec ./spec/system/books_spec.rb:108[0m [36m# 投稿のテスト 詳細画面のテスト 表示の確認 Backリンクが表示される[0m
+[31mrspec ./spec/system/books_spec.rb:114[0m [36m# 投稿のテスト 詳細画面のテスト リンクの遷移先の確認 Editの遷移先は編集画面か[0m
+[31mrspec ./spec/system/books_spec.rb:119[0m [36m# 投稿のテスト 詳細画面のテスト リンクの遷移先の確認 Backの遷移先は一覧画面か[0m
+[31mrspec ./spec/system/books_spec.rb:138[0m [36m# 投稿のテスト 編集画面のテスト 表示の確認 Showリンクが表示される[0m
+[31mrspec ./spec/system/books_spec.rb:142[0m [36m# 投稿のテスト 編集画面のテスト 表示の確認 Backリンクが表示される[0m
+[31mrspec ./spec/system/books_spec.rb:148[0m [36m# 投稿のテスト 編集画面のテスト リンクの遷移先の確認 Showの遷移先は詳細画面か[0m
+[31mrspec ./spec/system/books_spec.rb:153[0m [36m# 投稿のテスト 編集画面のテスト リンクの遷移先の確認 Backの遷移先は一覧画面か[0m
+[31mrspec ./spec/system/books_spec.rb:166[0m [36m# 投稿のテスト 編集画面のテスト 更新処理に関するテスト 更新に失敗しエラーメッセージが表示されるか[0m
+

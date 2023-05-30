@@ -1,0 +1,24 @@
+
+<html>
+
+    <body>
+        <% if flash[:success] %>
+          <div class="success-message">
+            <%= flash[:success] %>
+          </div>
+        <% end %>
+        
+        
+        <p id="notice"></p>
+        <p>
+          <strong>Title:</strong><%= @book.title %>
+        </p>
+        <p>
+            <strong>Body:</strong><%= @book.body %>
+        </p>
+        <%= link_to "Edit", edit_book_path(@book.id) %> 
+           | 
+            <a href="/books">Back</a>
+    </body>
+</html>
+
